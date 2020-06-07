@@ -1,0 +1,88 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+
+public class ArquivoFonteTeste {
+
+	public ArquivoFonteTeste(String arquivoFonte) {
+		// TODO Auto-generated constructor stub
+		
+		try {
+			BufferedReader buf = new BufferedReader(new FileReader(arquivoFonte));
+			
+			String questao = "";
+			String pontos = null;
+			String versao = "";
+			
+			ArrayList<Alternativa> arrAlternativa = new ArrayList<Alternativa>();
+			Teste teste = new Teste();
+			
+			while(buf.ready() ) {
+			
+				String linha = buf.readLine();
+				
+				if(linha.indexOf(":") > 0 ) {
+					
+					String comando = linha.substring(0, linha.indexOf(":") );
+					String texto = linha.substring(linha.indexOf(":")+1,linha.length() );
+					
+					// Comandos
+					
+					if(comando.equals("V:")) {
+						versao = texto;
+						if(! versao.equals("1.0") ) {
+							System.out.println("Versão " + versao + "incorreta ," + "Requer versão 1.0");
+							return;
+						}
+						
+					}
+					if(comando.equals("Q:")) {
+						
+						if( ! questao.equals("") ) {
+							
+							Questao questaoobj = new Questao(questao,arrAlternativa,Double.valueOf(pontos) );
+							teste.adicionarQuestao(questaoobj);
+							arrAlternativa.clear();
+						}
+						
+						questao = texto;
+						
+					}
+					
+					if(comando.equals("P:")) {
+						pontos = texto;
+					}
+					
+					if(comando.equals("AC:")) {
+						Alternativa alternativa = new Alternativa(texto,true);
+						arrAlternativa.add(alternativa);
+					}
+					
+					if(comando.equals("AE:")) {
+						Alternativa alternativa = new Alternativa(texto,false);
+						arrAlternativa.add(alternativa);
+					}
+					
+					// Fim dos comandos
+					
+				}
+			}
+			
+			ArquivoTeste arquivoTeste = new ArquivoTeste();
+			arquivoTeste.geraArquivoTeste("teste.trc", teste);
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}

@@ -1,0 +1,65 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileFilter;
+
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import net.miginfocom.swing.MigLayout;
+
+
+public class GuiCriaTeste {
+
+	JPanel panel;
+	
+	public GuiCriaTeste() {
+		// TODO Auto-generated constructor stub
+		
+		panel = new JPanel();
+		panel.setLayout(new MigLayout("nogrid") );
+		
+		
+		JLabel lblArqFnt = new JLabel("Arquivo fonte (*.frc):");
+		
+		final JTextField txtArqTeste = new JTextField();
+		final JButton btGeraArq = new JButton("...");
+		
+		panel.add(lblArqFnt);
+		panel.add(txtArqTeste);
+		panel.add(btGeraArq);
+		
+		
+		btGeraArq.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				   JFileChooser chooser = new JFileChooser();
+				    // Note: source for ExampleFileFilter can be found in FileChooserDemo,
+				    // under the demo/jfc directory in the Java 2 SDK, Standard Edition.
+				    int returnVal = chooser.showOpenDialog(panel);
+				    if(returnVal == JFileChooser.APPROVE_OPTION) {
+				       System.out.println("You chose to open this file: " +
+				            chooser.getSelectedFile().getName());
+				       		
+				       ArquivoFonteTeste arqFntTeste = new ArquivoFonteTeste(chooser.getSelectedFile().getName());
+				       txtArqTeste.setText(chooser.getSelectedFile().getName());
+				       
+				    }
+
+			}
+			
+		});
+		
+	}
+	
+	public JPanel getPanel() {
+		return panel;
+	}
+
+	
+}

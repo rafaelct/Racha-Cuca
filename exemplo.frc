@@ -1,0 +1,126 @@
+// Arquivo fonte do aplicativo Racha Cuca
+// Segue abaixo uma lista de comandos validos:
+//
+// Q: -> Quest„o
+// P: -> Pontos que vale a Quest„o.
+// AC: -> Alternativa correta (coloque pelo menos uma)
+// AE: -> Alternativa Errada (coloque quantas quiser)
+//
+// Segue exemplo abaixo de um simulado de testes de conhecimentos da aula 1 de Processo De Desenvolvimento De Software.
+
+Q:Em que ano surgiu a denominaÁ„o engenharia de software ?
+P:1.0
+AC:1968
+AE:1978
+AE:1956
+AE:1958
+
+Q:Defina o termo "Crise do software" ?
+P:1.0
+AC:termo criado para descrever as dificuldades enfrentadas no desenvolvimento de software no final da decada de 1960.
+AE:Termo criado para descrever as dificuldades enfrentadas em encontrar pessoas qualificadas para atender a demanda de dxesenvolvimento de softwares.
+AE:Termo criado para descrever as dificuldades enfrentadas em desenvolver um software nas linguagens existentes na decada de 1960.
+
+Q:Qual foi um dos fatores que foi o gerador da "Crise do software" ?
+P:1.0
+AC:IntroduÁ„o de computadores com maior poder de processamento.
+AE:Dificuldade em desenvolver softwares complexos nas linguagens de programaÁ„o existentes na epoca.
+AE:Falta de pessoal qualificado para atender a demanda crescente de desenvolvimento de software.
+
+Q:Escolha a alternativa verdadeira: Em que momento È mais alta a probabilidade de surgirem BUGs no software ?
+P:1.0
+AC: No inicio do desenvolvimento , e quando o software evolui com a adiÁ„o de novas funcionalidades.
+AE: No inicio do desenvolvimento , e quando o software envelece.
+AE: No final do ciclo de vida do software , ou seja , quando ele envelece.
+
+Q: coleÁ„o de programas para servir outros programas (compiladores, editores, utilit·rios para gest„o de arquivos, componentes de sistemas operacionais etc). Esses tipos de programas se caracterizam por manterem uma interaÁ„o intensa com o hardware.
+P:1.0
+AC:Software de sistema.
+AE:Software de tempo real
+AE:Software comercial
+AE:Software cientÌfico e de engenharia
+AE:Software embutido
+AE:Software para web
+AE:Software para computadores pessoais
+AE:Software para inteligÍncia artificial
+
+Q:monitora, analisa e controla eventos do mundo real ‡† medida em que eles ocorrem. Exemplos: sistema de radar aeroespacial, teclado que gera inputs de teclas pressionadas para um sistema microprocessado, sensor de temperatura que gera um input para um microcontrolador, sistema de controle de voos, dentre outros.
+P:1.0
+AE:Software de sistema.
+AC:Software de tempo real
+AE:Software comercial
+AE:Software cientÌ≠fico e de engenharia
+AE:Software embutido
+AE:Software para web
+AE:Software para computadores pessoais
+AE:Software para inteligencia artificial
+
+Q:maior ·rea de aplicaÁ„o de software. Est„o na categoria de software de aplicaÁ„o que resolvem necessidades especÌficas do negÛcio, como controle de reservas de voos, sistemas de pagamento, de controle de estoque etc.
+P:1.0
+AE:Software de sistema.
+AE:Software de tempo real
+AC:Software comercial
+AE:Software cientÌ≠fico e de engenharia
+AE:Software embutido
+AE:Software para web
+AE:Software para computadores pessoais
+AE:Software para inteligÍncia artificial
+
+Q:caracterizado por algoritmos que ìprocessam n˙merosî e realizam operaÁıes matem·ticas e c·lculos mais complexos (astronomia, an·lise automotiva de tensıes, manufatura automatizada, previs„o de tempo, simuladores, etc).
+P:1.0
+AE:Software de sistema.
+AE:Software de tempo real
+AE:Software comercial
+AC:Software cientÌfico e de engenharia
+AE:Software embutido
+AE:Software para web
+AE:Software para computadores pessoais
+AE:Software para intelig√™ncia artificial
+
+Q:produtos "inteligentes"ù. S„o programas armazenados em ROMs "Read Only Memories, como controle de teclado em um forno de microondas, funÁıes digitais em um automÛvel" controle de combustÌ≠vel, mostradores do painel, sistemas de frenagem, etc.
+P:1.0
+AE:Software de sistema.
+AE:Software de tempo real
+AE:Software comercial
+AE:Software cientÌ≠fico e de engenharia
+AC:Software embutido
+AE:Software para web
+AE:Software para computadores pessoais
+AE:Software para inteligÍncia artificial
+
+Q:as p·ginas da web recuperadas por um browser constituem softwares que incorporam instruÁıes execut·veis na forma de scripts, permitindo a incluÁ„o de elementos dinamicos, animaÁıes, acesso a banco de dados e diversas outras caracterÌ≠sticas.
+P:1.0
+AE:Software de sistema.
+AE:Software de tempo real
+AE:Software comercial
+AE:Software cientÌ≠fico e de engenharia
+AE:Software embutido
+AC:Software para web
+AE:Software para computadores pessoais
+AE:Software para inteligÍncia artificial
+
+Q:engloba uma enorme lista de aplicativos para desktops, notebooks, etc, como processadores de texto, planilhas, aplicaÁıes graficas, aplicaÁıes multimÌ≠dia, etc.
+P:1.0
+AE:Software de sistema.
+AE:Software de tempo real
+AE:Software comercial
+AE:Software cientÌfico e de engenharia
+AE:Software embutido
+AE:Software para web
+AC:Software para computadores pessoais
+AE:Software para intelig√™ncia artificial
+
+Q:faz uso de algoritmos n„o numÈricos para resolver problemas complexos, como sistemas de reconhecimento de padrıes (de imagem e de voz), redes neurais artificiais, sistemas de controle de robÙs, etc.
+P:1.0
+AE:Software de sistema.
+AE:Software de tempo real
+AE:Software comercial
+AE:Software cientÌfico e de engenharia
+AE:Software embutido
+AE:Software para web
+AE:Software para computadores pessoais
+AC:Software para inteligÍncia artificial
+
+
+
+

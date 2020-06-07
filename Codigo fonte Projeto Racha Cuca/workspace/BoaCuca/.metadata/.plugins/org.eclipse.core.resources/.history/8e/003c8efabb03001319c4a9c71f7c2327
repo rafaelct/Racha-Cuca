@@ -1,0 +1,28 @@
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import net.miginfocom.swing.MigLayout;
+
+
+public class GuiCriaTeste {
+
+	JPanel panel;
+	
+	public GuiCriaTeste() {
+		// TODO Auto-generated constructor stub
+		
+		panel = new JPanel();
+		panel.setLayout(new MigLayout("nogrid") );
+		
+		
+		JLabel lblArqFnt = new JLabel("Arquivo fonte (*.frc):");
+		
+		final JTextField txtArqTeste = new JTextField();
+		final JButton btGeraArq = new Button("...");
+		
+		
+	}
+
+}

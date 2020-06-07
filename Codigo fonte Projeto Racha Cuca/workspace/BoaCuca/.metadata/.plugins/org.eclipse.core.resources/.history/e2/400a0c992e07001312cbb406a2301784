@@ -1,0 +1,191 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Vector;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import net.miginfocom.swing.MigLayout;
+
+
+public class GuiCriaTesteOLD {
+
+	private JPanel panel = new JPanel();
+	private int posicao = 0;
+	private Teste teste;
+	
+	public GuiCriaTesteOLD() {
+		// TODO Auto-generated constructor stub
+		
+		panel = new JPanel();
+		panel.setLayout(new MigLayout("nogrid") );
+		
+		teste = new Teste();
+		
+		JLabel lblPergunta = new JLabel("Pergunta:");
+		JLabel lblPontos = new JLabel("Pontuação:");
+		
+		final JTextField txtPergunta = new JTextField();
+		final JTextField txtPontos = new JTextField();
+		
+		JLabel lblAlternativa = new JLabel("Alternativa:");
+		
+		final JTextField txtAlternativa = new JTextField();
+		
+		Vector vetCorreta = new Vector();
+		
+		vetCorreta.add("Correta");
+		vetCorreta.add("Incorreta");
+		
+		JLabel lblCorreta = new JLabel("Validação:");
+		
+		final JComboBox cmbCorreta = new JComboBox(vetCorreta);
+		
+		JButton btnAdd = new JButton("Adicionar Alternativa");
+		JButton btnRem = new JButton("Remover Alternativa");
+		
+		JButton btnAvancar = new JButton("Proxima Questão >");
+		JButton btnVoltar = new JButton("< Questão Anterior");
+			
+		JButton btnSalvar = new JButton("Salvar Simulado");
+		
+		final Tabela tabela = new Tabela();
+		tabela.init("CS");
+		tabela.setVisivel(true);
+		
+		panel.add(lblPergunta);
+		panel.add(txtPergunta,"width 400:400:400,height 20:20:20");
+		panel.add(lblPontos);
+		panel.add(txtPontos,"width 50:50:50,height 20:20:20,wrap");
+		
+		panel.add(lblAlternativa);
+		panel.add(txtAlternativa,"width 400:400:400,height 20:20:20");
+		panel.add(lblCorreta);
+		panel.add(cmbCorreta,"width 100:100:100,height 20:20:20");
+		panel.add(btnAdd);
+		panel.add(btnRem,"wrap");
+		panel.add(tabela.get(),"width 900:900:900,height 400:400:400,wrap" );
+		panel.add(btnVoltar);
+		panel.add(btnAvancar);
+		
+		panel.add(btnSalvar);
+		
+		btnVoltar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				
+				Vector vetDados = new Vector();
+				
+				vetDados.add(txtAlternativa.getText() );
+				vetDados.add( (String) cmbCorreta.getSelectedItem() );
+				tabela.adicionaLinha(vetDados);
+				
+			}
+			
+			
+		});
+		
+		btnAvancar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				
+				Vector vetAlternativas = tabela.getDados();
+				Boolean bolAval = false;
+				ArrayList<Alternativa> arrayAlternativas = new ArrayList<Alternativa>();
+				
+				for(int i = 0; i < vetAlternativas.size() ; i=i+2) {
+					
+					if(vetAlternativas.get(i+1).equals("Correta") ) {
+						bolAval = true;
+					} else {
+						bolAval = false;
+					}
+					
+					Alternativa alternativa = new Alternativa( (String) vetAlternativas.get(i),bolAval);
+					arrayAlternativas.add(alternativa);
+					
+				}
+				
+				Questao questao = new Questao(txtPergunta.getText(),arrayAlternativas,Double.valueOf(txtPontos.getText() ) );
+				teste.adicionarQuestao(questao);
+				
+				// limpa campos
+				
+				txtPergunta.setText("");
+				txtPontos.setText("");
+				txtAlternativa.setText("");
+				tabela.removeAllLinhas();
+			}
+			
+			
+		});
+		
+		btnSalvar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				
+				ArquivoTeste arquivoTeste = new ArquivoTeste();
+				try {
+					arquivoTeste.geraArquivoTeste("teste.simu", teste);
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+			
+			
+		});
+		
+		btnAdd.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				
+				Vector vetDados = new Vector();
+				
+				vetDados.add(txtAlternativa.getText() );
+				vetDados.add( (String) cmbCorreta.getSelectedItem() );
+				tabela.adicionaLinha(vetDados);
+				
+			}
+			
+			
+		});
+		
+		btnRem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				
+				tabela.removeLinha(tabela.getItemSelecionado() ,true);
+				
+			}
+			
+			
+		});
+	}
+	
+	public JPanel getPanel() {
+		return this.panel;
+		
+	}
+
+}
